@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Slf4j
@@ -32,7 +33,7 @@ public class GasService {
                     .valor(valor)
                     .percentual(percentual)
                     .alerta(alerta)
-                    .dataHora(LocalDateTime.now())
+                    .dataHora(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")))
                     .build();
 
             gasRepository.save(leitura);
